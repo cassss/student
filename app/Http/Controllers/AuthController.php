@@ -72,8 +72,12 @@ class AuthController extends Controller
             return redirect()->back()->withErrors("邮箱密码不匹配");
         }
     }
+    public function user_v(){
+        $user = Auth::user();
+        return view('auth.user',compact('user'));
+    }
     //登出行为
-    public function logut(){
+    public function logout(){
         Auth::logout();
         return redirect('/login');
     }

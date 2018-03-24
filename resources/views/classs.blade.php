@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', '登录')
+@section('title', '课程列表')
 @section('style')
     <style>
         .card{
@@ -22,15 +22,16 @@
     </style>
 @endsection
 @section('content')
-    <div class="klass">
-        <div class="card">
-            <a href="/class/1">
-                <img src="http://static.runoob.com/images/mix/img_avatar.png"  alt="课程名称">
-                <div class="body">
-                    <p>课程名称</p>
-                </div>
-            </a>
+    @foreach($classs as $class)
+        <div class="klass">
+            <div class="card">
+                <a href="/class/{{$class->id}}">
+                    <img src="{{$class->img}}"  alt="{{$class->name}}">
+                    <div class="body">
+                        <p>{{$class->name}}</p>
+                    </div>
+                </a>
+            </div>
         </div>
-    </div>
-
+    @endforeach
 @endsection
