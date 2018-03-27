@@ -13,6 +13,10 @@
         width: 90%;
         float: left;
     }
+    .input textarea{
+        width: 90%;
+        float: left;
+    }
     .input li{
         list-style-type:none;
     }

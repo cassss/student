@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Data;
+use App\Fraction;
 use App\Klass;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClassController extends Controller
 {
@@ -21,7 +24,16 @@ class ClassController extends Controller
             $section_id=\request('section');
             $video = $sections->where('id',$section_id)->first()->video;
         }
+        if(Auth::check()){
+            $user_id = Auth::id();
+            Fraction::create(compact('user_id'));
+        }
         return view('class',compact('class','sections','video'));
 
+    }
+    //资料列表页面
+    public function datas_v(){
+        $datas = Data::all();
+        return view('datas',compact('datas'));
     }
 }

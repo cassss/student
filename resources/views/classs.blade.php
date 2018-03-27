@@ -22,16 +22,16 @@
     </style>
 @endsection
 @section('content')
-    @foreach($classs as $class)
-        <div class="klass">
+    <div class="klass">
+        @foreach($classs as $class)
             <div class="card">
-                <a href="/class/{{$class->id}}">
-                    <img src="{{$class->img}}"  alt="{{$class->name}}">
-                    <div class="body">
-                        <p>{{$class->name}}</p>
-                    </div>
-                </a>
+                   <a href="/class/{{$class->id}}">
+                       <img src="{{$class->img}}"  alt="{{$class->name}}">
+                       <div class="body">
+                            <p>{{$class->name}}</p>
+                        </div>
+                    </a>
             </div>
-        </div>
-    @endforeach
+        @endforeach
+    </div>
 @endsection

@@ -8,6 +8,16 @@
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse-01">
         <ul class="nav navbar-nav">
+            @if(Auth::check())
+                @if(Auth::user()->root == 1)
+                    <li><a href="/admin/newteacher">添加教师</a></li>
+                    <li><a href="/admin/teachers">教师列表</a></li>
+                    <li><a href="/admin/newclass">添加课程</a></li>
+                    <li><a href="/admin">课程列表</a></li>
+                    <li><a href="/admin/newdata">添加课件资料</a></li>
+                @endif
+                    <li><a href="/datas">课件资料列表</a></li>
+            @endif
         </ul>
         @if(Auth::check())
             <div>
@@ -18,6 +28,9 @@
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
+                            @if(Auth::user()->root == 1)
+                                <li><a href="/admin">后台管理中心</a></li>
+                            @endif
                             <li><a href="/user">个人中心</a></li>
                             <li><a href="/logout">登出</a></li>
                         </ul>
